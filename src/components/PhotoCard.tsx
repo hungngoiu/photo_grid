@@ -82,22 +82,11 @@ export default function PhotoCard({ photo }: PhotoCardProps) {
                 className="cursor-pointer transition transform hover:opacity-90"
               >
                 {!loaded && (
-                  <Skeleton
-                    variant="rectangular"
-                    style={
-                      photo.width > photo.height
-                        ? {
-                            width: photo.width,
-                            height: "fit-content",
-                            aspectRatio: photo.width / photo.height
-                          }
-                        : {
-                            height: photo.height,
-                            aspectRatio: photo.width / photo.height
-                          }
-                    }
-                    className="max-w-xl max-h-[900px] md:max-w-3xl"
-                  />
+                  <div className="max-w-xl max-h-[900px] md:max-w-3xl" style={{aspectRatio: photo.width / photo.height}}>
+                    <Skeleton className="max-h-full max-w-full" variant="rectangular" style={{width: photo.width, height: photo.height}}>
+                      
+                    </Skeleton>
+                  </div>
                 )}
 
                 <CardMedia
